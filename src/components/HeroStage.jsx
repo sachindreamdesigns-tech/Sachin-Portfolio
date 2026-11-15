@@ -215,7 +215,7 @@ export default function HeroStage({ side }) {
         <p className="stage__hello">Hello, I'm Sachin</p>
         <h1 className="stage__title">
           <span>Product designer</span>
-          <span>&amp; frontend</span>
+          <span>&amp;</span>
           <span className="stage__title-light">developer</span>
         </h1>
         <p className="stage__sub">Designing clear, compliant products for pharma, fintech and enterprise, and building them in React.</p>
