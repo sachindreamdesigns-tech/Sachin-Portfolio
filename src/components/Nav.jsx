@@ -4,7 +4,7 @@ import { Link, usePath } from "../router.jsx";
 import { nav } from "../data.js";
 
 function useTheme() {
-  const [theme, setTheme] = useState(document.documentElement.dataset.theme || "light");
+  const [theme, setTheme] = useState(document.documentElement.dataset.theme || "dark");
   const toggle = () => {
     const next = theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
