@@ -115,8 +115,8 @@ function Ring({ active }) {
       <div className="ring" aria-label="Selected work and tools">
         {reelRing.map((it, i) => {
           const narrow = typeof window !== "undefined" && window.innerWidth < 700;
-          const spread = narrow ? 34 : 44;
-          const topBase = narrow ? 13 : 6;
+          const spread = narrow ? 30 : 37;
+          const topBase = narrow ? 19 : 15;
           let theta = (i * step + rot) % 360;
           if (theta > 180) theta -= 360;
           if (theta < -180) theta += 360;
@@ -132,7 +132,7 @@ function Ring({ active }) {
               className={`ring__slot ${depth > 0.4 ? "is-front" : "is-back"}`}
               style={{
                 left: `${50 + side * spread}%`,
-                top: `${topBase + (1 - depth) * 15}%`,
+                top: `${topBase + (1 - depth) * 13}%`,
                 transform: `translate(-50%, -50%) scale(${0.58 + Math.max(0, depth) * 0.3}) rotateY(${side * -20}deg)`,
                 opacity: active ? fade * (0.55 + Math.max(0, depth) * 0.45) : 0,
                 zIndex: 50 + Math.round(depth * 10),
