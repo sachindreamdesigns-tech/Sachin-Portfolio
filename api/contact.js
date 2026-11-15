@@ -6,6 +6,12 @@
 
 const DEFAULT_TO = "sachindreamdesigns@gmail.com";
 
+// Env var names are case-sensitive; accept RESEND_API_KEY however it was capitalised in Vercel.
+const envKey = (name) => {
+  const k = Object.keys(process.env).find((x) => x.toLowerCase() === name.toLowerCase());
+  return k ? process.env[k].trim() : "";
+};
+
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
 
@@ -21,8 +27,9 @@ export default async function handler(req, res) {
   if (!n || !m || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) {
     return res.status(400).json({ error: "Please fill in your name, a valid email and a message." });
   }
-  const to = process.env.CONTACT_TO || DEFAULT_TO;
-  if (!process.env.RESEND_API_KEY) {
+  const to = envKey("CONTACT_TO") || DEFAULT_TO;
+  const apiKey = envKey("RESEND_API_KEY");
+  if (!apiKey) {
     console.error("contact: RESEND_API_KEY is not set in Vercel environment variables");
     return res.status(500).json({ error: "Contact form is not configured yet.", reason: "missing-api-key" });
   }
@@ -33,7 +40,7 @@ export default async function handler(req, res) {
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+        Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
