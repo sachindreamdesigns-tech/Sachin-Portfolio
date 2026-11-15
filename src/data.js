@@ -7,7 +7,7 @@ const F = (id) => `https://framerusercontent.com/images/${id}`;
 
 export const profile = {
   name: "Sachin M",
-  title: "Product Designer & Frontend Developer",
+  title: "Product Designer & Developer",
   location: "Bengaluru, Karnataka, India",
   relocation: "Open to UAE, Netherlands, Luxembourg & remote",
   email: "sachindreamdesigns@gmail.com",
@@ -33,7 +33,7 @@ export const nav = [
 ];
 
 export const hero = {
-  eyebrow: "Product Designer · Frontend Developer",
+  eyebrow: "Product Designer · Developer",
   headline: "I design products and ship them in React.",
   sub: "5 years designing regulated pharma, fintech and enterprise products, from user research to production code.",
 };

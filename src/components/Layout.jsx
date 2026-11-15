@@ -5,7 +5,7 @@ import { nav, profile } from "../data.js";
 
 export function usePageTitle(title) {
   useEffect(() => {
-    document.title = title ? `${title} — Sachin M` : "Sachin M — Product Designer & Frontend Developer";
+    document.title = title ? `${title} — Sachin M` : "Sachin M — Product Designer & Developer";
   }, [title]);
 }
 
@@ -42,7 +42,7 @@ export default function Layout({ children, cta = true }) {
         <div className="container footer__inner">
           <div>
             <p className="footer__name">Sachin M</p>
-            <p className="muted">Product Designer & Frontend Developer<br />{profile.location}</p>
+            <p className="muted">Product Designer & Developer<br />{profile.location}</p>
           </div>
           <nav className="footer__links" aria-label="Footer">
             {nav.map((n) => <Link key={n.to} to={n.to}>{n.label}</Link>)}
